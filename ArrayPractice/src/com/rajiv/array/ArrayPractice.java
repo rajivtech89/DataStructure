@@ -4,8 +4,9 @@ public class ArrayPractice {
 
 	public static void main(String[] args) {
 		
-		int[] numbers = {1,2,3,4};
-		ArrayPractice.printSubArrays(numbers);;
+		int[] numbers = {1,12,3,44,2};
+	//	ArrayPractice.printSubArrays(numbers);
+		ArrayPractice.printElementGreaterThanEqualToRightSide(numbers);
 	}
 
 	public static void printSubArrays(int[] numbers) {
@@ -16,6 +17,16 @@ public class ArrayPractice {
 				}
 			}
 			System.out.println();
+		}
+	}
+	
+	public static void printElementGreaterThanEqualToRightSide(int[] array) {
+		int max= Integer.MIN_VALUE;
+		for(int i=array.length-1;i>=0;i--) {
+			if(array[i]>max) {
+				max=array[i];
+				System.out.println(array[i]+" ");
+			}
 		}
 	}
 
