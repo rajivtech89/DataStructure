@@ -6,6 +6,7 @@ public class ArrayPractice {
 		
 		int[] numbers = {1,12,3,44,2};
 	//	ArrayPractice.printSubArrays(numbers);
+		//ArrayPractice.printElementGreaterThanEqualToRightSide(numbers);
 		ArrayPractice.printElementGreaterThanEqualToRightSide(numbers);
 	}
 
@@ -30,4 +31,13 @@ public class ArrayPractice {
 		}
 	}
 
+	public static void printElementGreaterEqualToRight(int [] array) {
+		int max = Integer.MIN_VALUE;
+		for(int i=array.length-1;i>=0;i--) {
+			if(array[i]>max) {
+				max = array[i];
+				System.out.println(max);
+			}
+		}
+	}
 }
