@@ -55,7 +55,9 @@ public class BitUsage {
 	public static void countSetBit(int number) {
 		int count =0;
 		while(number>0) {
-			count += number & 1;
+			if((number & 1) == 1) {
+				count++;
+			}
 			number >>=1;
 		}
 		System.out.println("Number of set bit is :"+count);
