@@ -1,5 +1,7 @@
 package com.rajiv.bit;
 
+import java.util.Scanner;
+
 public class BitUsage {
 
 	public static void main(String[] args) {
@@ -10,6 +12,24 @@ public class BitUsage {
 		BitUsage.setKthBitSet(5, 2);
 		BitUsage.clearKthBit(5, 1);
 		BitUsage.countSetBit(5);
+
+		int arraySize;
+		Scanner sc = new Scanner(System.in);
+		arraySize = sc.nextInt();
+		int array[] = new int[arraySize];
+		for (int i = 0; i < arraySize; i++) {
+			array[i] = sc.nextInt();
+		}
+
+		BitUsage.findSingleElement(array);
+	}
+
+	public static void findSingleElement(int[] array) {
+		int result = array[0];
+		for (int i = 1; i < array.length; i++) {
+			result = result ^ array[i];
+		}
+		System.out.println(result);
 	}
 
 	public static void findOddEven(int number) {
@@ -46,20 +66,20 @@ public class BitUsage {
 	}
 
 	public static void clearKthBit(int number, int k) {
-		int mask = (1 << (k-1));
+		int mask = (1 << (k - 1));
 
 		number = number & (~mask);
 		System.out.println("The number after clear the bit in the given position is: " + number);
 	}
-	
+
 	public static void countSetBit(int number) {
-		int count =0;
-		while(number>0) {
-			if((number & 1) == 1) {
+		int count = 0;
+		while (number > 0) {
+			if ((number & 1) == 1) {
 				count++;
 			}
-			number >>=1;
+			number >>= 1;
 		}
-		System.out.println("Number of set bit is :"+count);
+		System.out.println("Number of set bit is :" + count);
 	}
 }
