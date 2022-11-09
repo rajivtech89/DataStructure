@@ -5,12 +5,12 @@ public class Floor {
 	public static void main(String[] args) {
 		int[] arr = { -11, -2, -1, 0, 22, 44, 55, 65, 88 };
 		int target = 57;
-		int resultIndex = orderAgnosticBS(arr, target);
+		int resultIndex = floor(arr, target);
 
 		System.out.println(arr[resultIndex]);
 	}
 
-	static int orderAgnosticBS(int[] arr, int target) {
+	static int floor(int[] arr, int target) {
 		int start = 0;
 		int end = arr.length - 1;
 		boolean isAsc = false;
