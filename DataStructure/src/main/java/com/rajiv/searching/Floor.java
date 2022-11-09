@@ -4,9 +4,9 @@ public class Floor {
 
 	public static void main(String[] args) {
 		int[] arr = { -11, -2, -1, 0, 22, 44, 55, 65, 88 };
-		int target = 57;
+		int target = 22;
 		int resultIndex = floor(arr, target);
-
+		if(resultIndex !=-1)
 		System.out.println(arr[resultIndex]);
 	}
 

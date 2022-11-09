@@ -4,13 +4,15 @@ public class Ceiling {
 
 	public static void main(String[] args) {
 		int[] arr = { -11, -2, -1, 0, 22, 44, 55, 65, 88 };
-		int target = 57;
+		int target = 89;
 		int resultIndex = ceiling(arr, target);
-		
+		if(resultIndex !=-1)
 		System.out.println(arr[resultIndex]);
 	}
 
 	static int ceiling(int[] arr, int target) {
+		if(target >arr[arr.length-1])
+			return -1;
 		int start = 0;
 		int end = arr.length - 1;
 		boolean isAsc = false;
