@@ -35,7 +35,6 @@ public class SequenceSum {
 
 	}
 
-	
 	public static void closest(int[] numbers) {
 		Arrays.sort(numbers);
 		int min = Integer.MAX_VALUE;
@@ -44,9 +43,46 @@ public class SequenceSum {
 		}
 		for (int i = 0; i < numbers.length - 1; i++) {
 			if (numbers[i + 1] - numbers[i] == min) {
-				System.out.println(numbers[i]+ " "+ numbers[i + 1]);
+				System.out.println(numbers[i] + " " + numbers[i + 1]);
 			}
 		}
+	}
+
+
+	
+	
+	// find first last position of an element in an array
+	public static int[] firstAndLastOccurence(int[] arr, int target) {
+		int [] ans = {-1,-1};
+		int start = 0;
+		int end = arr.length - 1;
+		while (start <= end) {
+			int mid = (start+end)/2;
+			if (arr[mid] == target) {
+			ans[0]=mid;
+			end=mid-1;
+			}else if(arr[mid] <target) {
+				start=mid+1;
+			}else {
+				end = mid-1;
+			}
+		}
+		
+		 start = 0;
+		 end = arr.length - 1;
+		while (start <= end) {
+			int mid = (start+end)/2;
+			if (arr[mid] == target) {
+			ans[1]=mid;
+			start=mid+1;
+			}else if(arr[mid] <target) {
+				start=mid+1;
+			}else {
+				end = mid-1;
+			}
+		}
+
+		return ans;
 	}
 
 	public static void main(String[] args) {
@@ -55,12 +91,14 @@ public class SequenceSum {
 		 * in.nextInt(); k = in.nextInt(); System.out.println(getSequenceSUm(i, j, k));
 		 */
 
-		Scanner in = new Scanner(System.in);
-		int n = in.nextInt();
-		int[] numbers = new int[n];
-		for (int i = 0; i < n; i++) {
-			numbers[i] = in.nextInt();
-		}
-		closest(numbers);
+		/*
+		 * Scanner in = new Scanner(System.in); int n = in.nextInt(); int[] numbers =
+		 * new int[n]; for (int i = 0; i < n; i++) { numbers[i] = in.nextInt(); }
+		 * closest(numbers);
+		 */
+		
+		int [] arr= {1,5,7,7,7,7,8};
+		int [] result= firstAndLastOccurence(arr, 11);
+		System.out.println(result[0]+" "+result[1]);
 	}
 }
